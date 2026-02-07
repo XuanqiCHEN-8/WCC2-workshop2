@@ -5,13 +5,14 @@ let trail = [];
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    socket = io();
+    socket = io();//Establishes the real-time connection to the server
 
     socket.on('update', (data) => {
-        targetX = data.ballX;
+        targetX = data.ballX;//Updating local variables with the server's master data
         stats.left = data.leftClicks;
         stats.right = data.rightClicks;
         
+        //Updating the HTML text with JS data
         document.getElementById('left-stat').innerText = `Left Power: ${stats.left}`;
         document.getElementById('right-stat').innerText = `Right Power: ${stats.right}`;
         document.getElementById('user-count').innerText = `Users Online: ${data.userCount}`;
@@ -26,6 +27,7 @@ function setup() {
     socket.on('reset', () => { trail = []; });
 }
 
+//Draw the Ball
 function draw() {
     background(10, 10, 15, 50);
 
@@ -58,8 +60,9 @@ function draw() {
 }
 
 function mousePressed() {
+    //Splits the screen in half to decide push direction
     let dir = mouseX < width / 2 ? -1 : 1;
-    socket.emit('push', dir);
+    socket.emit('push', dir);//Sending the user action to the server
 }
 
 function windowResized() {
