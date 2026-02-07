@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sync Balance Game</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; background: #0a0a0c; font-family: sans-serif; }
+        #ui {
+            position: absolute; width: 100%; display: flex; justify-content: space-between;
+            padding: 20px; box-sizing: border-box; color: white; pointer-events: none;
+            text-transform: uppercase; letter-spacing: 2px; font-size: 12px; z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui">
+    <div id="left-stat">Left Power: 0</div>
+    <div id="center-info">
+        <span id="user-count">Users: 0</span><br>
+        <span id="last-action" style="color: yellow; font-size: 10px;">Waiting...</span>
+    </div>
+    <div id="right-stat">Right Power: 0</div>
+</div>
+    <script src="sketch.js"></script>
+</body>
+</html>
