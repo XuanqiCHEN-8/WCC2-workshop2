@@ -1,5 +1,5 @@
 # Sync Balance Ball
-Author:Xuanqi Chen
+Author:Xuanqi Chen/Lu Yao
 
 ## Introduction
 My project is a simple real-time game called Sync Balance. I used WebSockets to connect everyone to the same ball on the screen. 
